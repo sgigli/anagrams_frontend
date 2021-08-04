@@ -16,9 +16,9 @@ class NavBar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
+              <Nav.Link href="/sign_up">Link</Nav.Link>
             </Nav>
-            <Button>Sign Up</Button>
+            <Button href="/sign_up">Sign Up</Button>
             <Button className="ms-2">Login</Button>
           </Navbar.Collapse>
         </Container>
