@@ -2,18 +2,16 @@ import React from 'react'
 import Form from "react-bootstrap/Form"
 import Button from 'react-bootstrap/Button'
 import '../../styles/App.scss'
-import { signUp } from '../../api/auth'
+import { login } from '../../api/auth'
 
 
-class SignUp extends React.Component {
+class Login extends React.Component {
   constructor () {
     super()
 
     this.state = {
-      email: '',
       username: '',
-      password: '',
-      passwordConfirmation: ''
+      password: ''
     }
   }
 
@@ -21,31 +19,21 @@ class SignUp extends React.Component {
     [event.target.name]: event.target.value
   })
 
-  onSignUp = event => {
+  onLogin = event => {
     event.preventDefault()
 
-    signUp(this.state)
+    login(this.state)
       .then(() => console.log("Success!"))
       .catch((error) => console.log(error))
   }
 
   render() {
-    const { email, username, password, passwordConfirmation } = this.state
+    const { username, password } = this.state
 
     return (
       <div className="fill-remaining-viewport-after-header d-flex align-items-center justify-content-center">
-        <Form className="bg-warning w-50 p-5" onSubmit={this.onSignUp}>
-          <Form.Group controlId="email">
-            <Form.Label><h2>Sign Up</h2></Form.Label>
-            <Form.Control
-              required
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              value = {email}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
+        <Form className="bg-warning w-50 p-5" onSubmit={this.onLogin}>
+          <Form.Label><h2>Login</h2></Form.Label>
           <Form.Group controlId="username">
             <Form.Control
               required
@@ -66,16 +54,6 @@ class SignUp extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Group controlId="passwordConfirmation">
-            <Form.Control
-              required
-              name="passwordConfirmation"
-              value={passwordConfirmation}
-              type="password"
-              placeholder="Confirm Password"
-              onChange={this.handleChange}
-            />
-          </Form.Group>
           <Button className="mt-3" variant="primary" type="submit">
             Submit
           </Button>
@@ -85,4 +63,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp
+export default Login

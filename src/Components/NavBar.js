@@ -19,7 +19,7 @@ class NavBar extends Component {
               <Nav.Link as={Link} to="/">Home</Nav.Link>
             </Nav>
             <Button as={Link} to="/sign_up">Sign Up</Button>
-            <Button className="ms-2">Login</Button>
+            <Button as={Link} to="/login" className="ms-2">Login</Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>
