@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
   constructor(props) {
@@ -11,14 +12,13 @@ class NavBar extends Component {
     return (
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="#home">Anagrammania</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="/sign_up">Link</Nav.Link>
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
             </Nav>
-            <Button href="/sign_up">Sign Up</Button>
+            <Button as={Link} to="/sign_up">Sign Up</Button>
             <Button className="ms-2">Login</Button>
           </Navbar.Collapse>
         </Container>

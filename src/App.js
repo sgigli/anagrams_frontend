@@ -6,7 +6,9 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <Routes />
+      <main className="container">
+        <Routes />
+      </main>
     </Router>
   )
 }
