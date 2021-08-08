@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-class NavBar extends Component {
+class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -27,4 +27,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+export default Header

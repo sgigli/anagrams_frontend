@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import NavBar from './NavBar'
+import Header from './Header'
 import Routes from './Routes'
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <NavBar user={this.state.user}/>
+        <Header user={this.state.user}/>
         <main className="container">
           <Routes />
         </main>
