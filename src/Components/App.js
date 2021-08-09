@@ -23,7 +23,7 @@ class App extends Component {
         <Header user={this.state.user} clearUser={this.clearUser} />
         <main className="container">
           <Switch>
-            <Route path='/sign_up' ><SignUp /></Route>
+            <Route path='/sign_up' ><SignUp setUser={this.setUser} /></Route>
             <Route path='/login' ><Login setUser={this.setUser} /></Route>
           </Switch>
         </main>
