@@ -1,7 +1,8 @@
 import { Component } from 'react'
 import Header from './Header'
-import Routes from './Routes'
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SignUp from './Authentication/SignUp'
+import Login from './Authentication/Login'
 
 class App extends Component {
   constructor() {
@@ -12,12 +13,17 @@ class App extends Component {
     }
   }
 
+  setUser = user => this.setState({ user })
+
   render() {
     return (
       <Router>
-        <Header user={this.state.user}/>
+        <Header user={this.state.user} />
         <main className="container">
-          <Routes />
+          <Switch>
+            <Route path='/sign_up' ><SignUp /></Route>
+            <Route path='/login' ><Login setUser={this.setUser} /></Route>
+          </Switch>
         </main>
       </Router>
     )

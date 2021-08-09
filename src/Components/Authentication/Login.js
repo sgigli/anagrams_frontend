@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button'
 import '../../styles/App.scss'
 import { login } from '../../api/auth'
 
-
 class Login extends React.Component {
   constructor () {
     super()
@@ -22,8 +21,10 @@ class Login extends React.Component {
   onLogin = event => {
     event.preventDefault()
 
+    const { setUser } = this.props
+
     login(this.state)
-      .then(() => console.log("Success!"))
+      .then((res) => setUser(res.data.user))
       .catch((error) => console.log(error))
   }
 
