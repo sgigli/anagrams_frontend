@@ -15,10 +15,12 @@ class App extends Component {
 
   setUser = user => this.setState({ user })
 
+  clearUser = () => this.setState({ user: null })
+
   render() {
     return (
       <Router>
-        <Header user={this.state.user} />
+        <Header user={this.state.user} clearUser={this.clearUser} />
         <main className="container">
           <Switch>
             <Route path='/sign_up' ><SignUp /></Route>

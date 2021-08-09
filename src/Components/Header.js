@@ -1,8 +1,9 @@
 import { Fragment } from 'react'
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Logout from './Authentication/Logout'
 
-const Header = ({ user }) => {
+const Header = ({ user, clearUser }) => {
 
   const authenticatedOptions = (
     <Fragment>
@@ -10,7 +11,7 @@ const Header = ({ user }) => {
         <Nav.Link as={Link} to="/">Home</Nav.Link>
       </Nav>
       { user && <span className="me-3">Welcome, {user.username}</span>}
-      <Button >Sign Out</Button>
+      <Logout user={user} clearUser={clearUser} />
     </Fragment>
   )
 

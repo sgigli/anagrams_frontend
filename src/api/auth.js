@@ -23,3 +23,14 @@ export const login = credentials => {
     }
   })
 }
+
+export const logout = credentials => {
+  return axios({
+    method: 'GET',
+    url: apiUrl + '/logout',
+    data: {
+      username: credentials.username,
+      password: credentials.password
+    }
+  })
+}

@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button'
 import '../../styles/App.scss'
 import { signUp } from '../../api/auth'
 
-
 class SignUp extends React.Component {
   constructor () {
     super()
