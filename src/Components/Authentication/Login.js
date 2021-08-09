@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form"
 import Button from 'react-bootstrap/Button'
 import '../../styles/App.scss'
 import { login } from '../../api/auth'
+import { withRouter } from 'react-router-dom'
 
 class Login extends React.Component {
   constructor () {
@@ -21,10 +22,11 @@ class Login extends React.Component {
   onLogin = event => {
     event.preventDefault()
 
-    const { setUser } = this.props
+    const { setUser, history } = this.props
 
     login(this.state)
       .then((res) => setUser(res.data.user))
+      .then(() => history.push("/"))
       .catch((error) => console.log(error))
   }
 
@@ -64,4 +66,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

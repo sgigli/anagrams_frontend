@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form"
 import Button from 'react-bootstrap/Button'
 import '../../styles/App.scss'
 import { signUp } from '../../api/auth'
+import { withRouter } from 'react-router-dom'
 
 class SignUp extends React.Component {
   constructor () {
@@ -23,8 +24,11 @@ class SignUp extends React.Component {
   onSignUp = event => {
     event.preventDefault()
 
+    const { history } = this.props
+
     signUp(this.state)
       .then(() => console.log("Success!"))
+      .then(() => history.push("/"))
       .catch((error) => console.log(error))
   }
 
@@ -84,4 +88,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp
+export default withRouter(SignUp)
