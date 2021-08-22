@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import '../../styles/App.scss'
 import { login } from '../../api/auth'
 import { withRouter } from 'react-router-dom'
+import messages from '../Alerts/messages'
 
 class Login extends React.Component {
   constructor () {
@@ -22,12 +23,25 @@ class Login extends React.Component {
   onLogin = event => {
     event.preventDefault()
 
-    const { setUser, history } = this.props
+    const { setUser, history, setMsgAlert } = this.props
 
     login(this.state)
       .then((res) => setUser(res.data.user))
+      .then(() => {
+        setMsgAlert({
+          heading: "Sign In Success!",
+          message: messages.signInSuccess,
+          variant: "success"
+        })
+      })
       .then(() => history.push("/"))
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        setMsgAlert({
+          heading: 'Sign In Failed with error: ' + error.message,
+          message: messages.signInFailure,
+          variant: 'danger'
+        })
+      })
   }
 
   render() {

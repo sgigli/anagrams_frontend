@@ -3,7 +3,7 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logout from './Authentication/Logout'
 
-const Header = ({ user, clearUser }) => {
+const Header = ({ user, clearUser, setMsgAlert }) => {
 
   const authenticatedOptions = (
     <Fragment>
@@ -11,7 +11,7 @@ const Header = ({ user, clearUser }) => {
         <Nav.Link as={Link} to="/">Home</Nav.Link>
       </Nav>
       { user && <span className="me-3">Welcome, {user.username}</span>}
-      <Logout user={user} clearUser={clearUser} />
+      <Logout user={user} clearUser={clearUser} setMsgAlert={setMsgAlert} />
     </Fragment>
   )
 
